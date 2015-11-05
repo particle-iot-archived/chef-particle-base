@@ -1,4 +1,5 @@
 #!/bin/bash
+# inspired from here http://everydaytinker.com/raspberry-pi/installing-chef-client-on-a-raspberry-pi-2-model-b/ with a few slight tweaks
 cd /root
 apt-get update
 apt-get purge ruby1.9 -y
