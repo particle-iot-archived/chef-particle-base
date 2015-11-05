@@ -1,0 +1,7 @@
+name 'particle-programmer-shield'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures particle-programmer-shield'
+long_description 'Installs/Configures particle-programmer-shield'
+version '0.1.0'

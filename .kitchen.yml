@@ -1,0 +1,15 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: debian-8.2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[particle-programmer-shield::default]
+    attributes:
