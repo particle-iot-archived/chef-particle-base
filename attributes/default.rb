@@ -8,7 +8,7 @@ default['particle']['do_update_packages'] = true
 default['particle']['programmer_shield']['user'] = 'root'
 # we don't clone this repo, it's fucking huge
 # default['particle']['programmer_shield']['git_clone_url'] = 'https://github.com/spark/shields' # note; must use https, 'git@github.com:spark/shields.git' won't work without ssh auth
-# default['particle']['programmer_shield']['git_branch'] = 'feature/programmer-shield-openocd-wrapper-script'
+# default['particle']['programmer_shield']['git_branch'] = 'master'
 # default['particle']['programmer_shield']['git_path'] = 'photon-shields/programmer-shield'
 default['particle']['programmer_shield']['project_name'] = "programmer-shield"
 default['particle']['programmer_shield']['deploy_dir'] = "#{node['particle']['base_dir']}/#{node['particle']['programmer_shield']['project_name']}"
