@@ -1,0 +1,3 @@
+<% node['particle']['programmer_shield'].each_pair do |key, val| -%>
+export PROGRAMMER_SHIELD_<%= key.to_s.upcase %>="<%= val %>"
+<% end -%>
