@@ -1,0 +1,7 @@
+#!/bin/bash
+# "pocd" is short for "Particle OpenOCD", a thin wrapper for making openocd usage with a Particle Device a bit more user friendly.
+source /etc/profile
+: ${STM32F2X_CFG_PATH:?"REQUIRED, typically something like: /a/valid/path/to/stm32f2x.cfg"}
+: ${PARTICLE_CFG_PATH:?"REQUIRED, typically something like: /a/valid/path/to/programmer-shields/particle.cfg"}
+set -x
+exec openocd -f "$PARTICLE_CFG_PATH" -f "$STM32F2X_CFG_PATH" "$@"

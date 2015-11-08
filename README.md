@@ -7,13 +7,24 @@ Supported Platforms
 
 - Raspberry Pi 2 B+
 
-Bootstrap the Pi with Ruby + Chef
+Usage
 ---
+
+### 1. Bootstrap the Pi with Ruby + Chef
 
 Run this [shell script](/files/default/ruby_and_chef.sh) as root.
 
-Grab cookbook and run it
----
+### 2. Install the goodies
 
-    git clone <git-repo>
-    cd <git-repo>
+Run this as root:
+
+    mkdir -p ~/.chef/cookbooks
+    git clone git@github.com:spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
+    cd .chef
+    chef-client --local --override-runlist 'recipe[particle-programmer-shield]'
+
+This does the following:
+
+- installs openocd
+- grabs a git clone of the programmer-shield repo
+- symlinks config files to make shell usage more friendly
