@@ -1,10 +1,8 @@
-# TODO OTHER STUFF
+# TODOS
 
-- [ ] grab combined-09 from here http://factory-firmware-binaries.particle.io instead of including it inline
+### From old programmer rig/David's shell script
 
-# TODO STUFF FROM OLD RIG
-Joe, see https://mail.google.com/mail/#inbox/150f8a65d96d5cde for original bash script
-- [ ] autossh configuration
+- [ ] configure autossh
 - [ ] enable random number generator
 
     echo "Enabling hardware random number generator"
@@ -13,7 +11,6 @@ Joe, see https://mail.google.com/mail/#inbox/150f8a65d96d5cde for original bash 
     echo "add bcm2708-rng to /etc/modules"
     sync # Force changed blocks to disk, update the super block
 
-- [ ] Confirm node.js version is good on RPi
 
 - [ ] Install ST-LINK tools
 
@@ -37,12 +34,14 @@ Joe, see https://mail.google.com/mail/#inbox/150f8a65d96d5cde for original bash 
     sudo dphys-swapfile uninstall
     sudo update-rc.d dphys-swapfile remove
 
-# HAD COMPLETED
-- gcc >= 4.9.2
-- libusb
+### From CI related ideas/Joe stuff
+
+- [ ] grab combined-09 from here http://factory-firmware-binaries.particle.io instead of including it inline
 
 # COMPLETED
 
+- [x] gcc >= 4.9.2
+- [x] libusb and friends
 - [x] install autossh
 - [x] misc packages sudo apt-get install git dh-autoreconf htop minicom
   - [x] git
@@ -51,4 +50,4 @@ Joe, see https://mail.google.com/mail/#inbox/150f8a65d96d5cde for original bash 
   - [x] minicom
 - [SKIP] set the local time to CST, let's stick to utc
 - [x] Install dfu-util
-
+- [x] Confirm node.js version is good on RPi
