@@ -4,7 +4,7 @@
 cd /root
 apt-get update
 apt-get purge ruby1.9 -y
-apt-get install build-essential libyaml-dev libssl-dev
+apt-get install build-essential libyaml-dev libssl-dev libreadline-dev
 wget http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz
 tar -xvzf ruby-2.2.2.tar.gz
 cd ruby-2.2.2
@@ -12,3 +12,4 @@ cd ruby-2.2.2
 make install
 echo "gem: --no-document" >> ~/.gemrc
 gem install chef --no-ri --no-rdoc --version 12.5.1
+gem install bundler --no-ri --no-rdoc
