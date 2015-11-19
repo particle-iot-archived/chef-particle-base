@@ -4,7 +4,7 @@
 
 # TODO STUFF FROM OLD RIG
 Joe, see https://mail.google.com/mail/#inbox/150f8a65d96d5cde for original bash script
-- [ ] autossh configuration 
+- [ ] autossh configuration
 - [ ] enable random number generator
 
     echo "Enabling hardware random number generator"
