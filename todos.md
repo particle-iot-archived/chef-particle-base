@@ -28,8 +28,8 @@
 
 - [ ] Turn off physical disk swapping
 
-    #http://www.ideaheap.com/2013/07/stopping-sd-card-corruption-on-a-raspberry-pi/
-    #turn off physical disk swapping
+    # http://www.ideaheap.com/2013/07/stopping-sd-card-corruption-on-a-raspberry-pi/
+    # turn off physical disk swapping
     sudo dphys-swapfile swapoff
     sudo dphys-swapfile uninstall
     sudo update-rc.d dphys-swapfile remove
