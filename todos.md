@@ -5,34 +5,33 @@
 - [ ] configure autossh
 - [ ] enable random number generator
 
-    echo "Enabling hardware random number generator"
-    sudo rpi-update
-    sudo modprobe bcm2708-rng
-    echo "add bcm2708-rng to /etc/modules"
-    sync # Force changed blocks to disk, update the super block
+        echo "Enabling hardware random number generator"
+        sudo rpi-update
+        sudo modprobe bcm2708-rng
+        echo "add bcm2708-rng to /etc/modules"
+        sync # Force changed blocks to disk, update the super block
 
 
 - [ ] Install ST-LINK tools
 
-    cd ~/tmp
-    git clone https://github.com/texane/stlink.git
-    cd stlink
-    ./autogen.sh
-    ./configure
-    make
-    make install
+        cd ~/tmp
+        git clone https://github.com/texane/stlink.git
+        cd stlink
+        ./autogen.sh
+        ./configure
+        make
+        make install
 
 - [ ] Create a private key for sparkbot3 so it can get private repos???
   - TODO; think about this, how to handle ssh keys + private repos here
   - Note was "Add our public key to our read-only github user: "david+sparkbot@sparkdevices.com""
 
 - [ ] Turn off physical disk swapping
+  http://www.ideaheap.com/2013/07/stopping-sd-card-corruption-on-a-raspberry-pi/
 
-    # http://www.ideaheap.com/2013/07/stopping-sd-card-corruption-on-a-raspberry-pi/
-    # turn off physical disk swapping
-    sudo dphys-swapfile swapoff
-    sudo dphys-swapfile uninstall
-    sudo update-rc.d dphys-swapfile remove
+        sudo dphys-swapfile swapoff
+        sudo dphys-swapfile uninstall
+        sudo update-rc.d dphys-swapfile remove
 
 ### From CI related ideas/Joe stuff
 
