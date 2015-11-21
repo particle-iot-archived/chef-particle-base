@@ -10,17 +10,48 @@ Supported Platforms
 Usage
 ---
 
-### 1. Bootstrap the Pi with Ruby + Chef
+### 0. Write the SD card
 
-Run this [shell script](/files/default/ruby_and_chef.sh) as root.
+- `df -h`: see something like 
 
-### 2. Install the goodies
+/dev/disk2s1
+disk2s1
+
+https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+= `diskutil list`
+/dev/disk2
+
+diskutil unmountDisk /dev/disk2
+sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2
+
+
+sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2
+/dev/disk2
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *16.1 GB    disk2
+   1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
+   2:                      Linux                         4.3 GB     disk2s2
+
+- ON DEVICE:
+- change keyboard layout to english
+
+### Change pi user password
+### Enable SSH
+### Add root ssh deploy key to needed private
+
+    sudo bash
+    ssh-keygen
+    cap ~/.ssh/id_rsa.pub
+    # go add this somewhere in github
+
+### Bootstrap Pi + Run chef
 
 Run this as root:
 
     mkdir -p ~/.chef/cookbooks
     git clone git@github.com:spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
-    cd .chef
+    cd ~/.chef
+    bash cookbooks/particle-programmer-shield/files/default/install_scripts/ruby_and_chef.sh
     chef-client --local --override-runlist 'recipe[particle-programmer-shield]'
 
 This does the following:

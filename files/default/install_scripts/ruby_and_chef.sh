@@ -5,6 +5,7 @@ cd /root
 apt-get update
 apt-get purge ruby1.9 -y
 apt-get install build-essential libyaml-dev libssl-dev libreadline-dev -y
+rm -rf ruby-2.2.2.tar.gz # done to make it idempotent
 wget http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz
 tar -xvzf ruby-2.2.2.tar.gz
 cd ruby-2.2.2
