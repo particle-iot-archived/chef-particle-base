@@ -12,7 +12,8 @@ package 'minicom' # serial
 case node['kernel']['machine']
 when 'x86_64'
   log "node.js install not working on x86_64 yet"
-when 'armv6l' # this is the machine architecture of a Raspberry Pi 1 B+
+when 'armv6l',  # this is the machine architecture of a Raspberry Pi 1 B+
+     'armv7l'   # machine architecture of a Raspberry Pi 2 B
   # Install from pre-build arm node package, see http://node-arm.herokuapp.com/
   execute "install node_latest_armhf" do
     command "dpkg -i /root/node_latest_armhf.deb"
