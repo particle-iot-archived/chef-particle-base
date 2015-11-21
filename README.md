@@ -35,6 +35,25 @@ sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2
 - ON DEVICE:
 - change keyboard layout to english
 
+
+### berkshelf fails
+
+config.status: creating gecode/support/config.hpp
+-> make clean
+(cd . && autoconf)
+/bin/sh: 1: autoconf: not found
+Makefile:1455: recipe for target 'configure' failed
+make: *** [configure] Error 127
+extconf.rb:98:in `block in run': Failed to build gecode library. (GecodeBuild::BuildError)
+        from extconf.rb:97:in `chdir'
+        from extconf.rb:97:in `run'
+        from extconf.rb:104:in `<main>'
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /usr/local/lib/ruby/gems/2.2.0/gems/dep-selector-libgecode-1.0.2 for inspection.
+Results logged to /usr/local/lib/ruby/gems/2.2.0/extensions/armv7l-linux/2.2.0/dep-selector-libgecode-1.0.2/gem_make.out
+
 ### Change pi user password
 ### Enable SSH
 ### Add root ssh deploy key to needed private
