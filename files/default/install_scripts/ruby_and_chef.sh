@@ -13,3 +13,4 @@ make install
 echo "gem: --no-document" >> ~/.gemrc
 gem install chef --no-ri --no-rdoc --version 12.5.1
 gem install bundler --no-ri --no-rdoc
+gem install berkshelf --no-ri --no-rdoc
