@@ -78,3 +78,50 @@ This does the following:
 - installs openocd
 - grabs a git clone of the programmer-shield repo
 - symlinks config files to make shell usage more friendly
+
+### TODO: add the end to end tests
+
+git clone git@github.com:/spark/end-to-end-tests.git
+
+
+## 
+- FUCK; particle-cli doesnt install
+
+
+    root@raspberrypi:~# npm install particle-cli
+    \
+    > serialport@2.0.5 install /root/node_modules/particle-cli/node_modules/serialport
+    > node-pre-gyp install --fallback-to-build
+
+    sh: 1: node-pre-gyp: Permission denied
+    npm ERR! Linux 4.1.7-v7+
+    npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "particle-cli"
+    npm ERR! node v4.2.1
+    npm ERR! npm  v2.14.7
+    npm ERR! file sh
+    npm ERR! code ELIFECYCLE
+    npm ERR! errno ENOENT
+    npm ERR! syscall spawn
+
+    npm ERR! serialport@2.0.5 install: `node-pre-gyp install --fallback-to-build`
+    npm ERR! spawn ENOENT
+    npm ERR!
+    npm ERR! Failed at the serialport@2.0.5 install script 'node-pre-gyp install --fallback-to-build'.
+    npm ERR! This is most likely a problem with the serialport package,
+    npm ERR! not with npm itself.
+    npm ERR! Tell the author that this fails on your system:
+    npm ERR!     node-pre-gyp install --fallback-to-build
+    npm ERR! You can get their info via:
+    npm ERR!     npm owner ls serialport
+    npm ERR! There is likely additional logging output above.
+
+    npm ERR! Please include the following file with any support request:
+    npm ERR!     /root/npm-debug.log
+    root@raspberrypi:~# particle
+    -bash: particle: command not found
+
+
+- No worries, we fix it via this: https://github.com/voodootikigod/node-serialport
+
+     wget https://node-arm.herokuapp.com/node_archive_armhf.deb
+     sudo dpkg -i node_archive_armhf.deb

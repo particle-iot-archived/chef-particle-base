@@ -25,7 +25,7 @@ when 'armv6l',  # this is the machine architecture of a Raspberry Pi 1 B+
     notifies :run, "execute[install node_latest_armhf]", :immediately
   end
 else
-  raise "architecture not supported for node install"
+  raise "architecture not supported for node.js install"
 end
 
 # build and install dfu-util

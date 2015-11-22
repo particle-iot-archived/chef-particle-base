@@ -30,3 +30,12 @@ default['particle']['programmer_shield']['env']['OPENOCD_TARGETS_DIR'] = '/usr/l
 default['particle']['programmer_shield']['env']['STM32F2X_CFG_PATH'] = "#{node['particle']['programmer_shield']['env']['OPENOCD_TARGETS_DIR']}/stm32f2x.cfg"
 default['particle']['programmer_shield']['env']['PARTICLE_CFG_PATH'] = "#{node['particle']['programmer_shield']['shared_dir']}/particle-ftdi.cfg"
 default['particle']['programmer_shield']['remote_sources']['PARTICLE_CFG_PATH'] = "https://raw.githubusercontent.com/spark/shields/master/photon-shields/programmer-shield/particle-ftdi.cfg"
+
+
+# pocd wrapper scripts, configures these scripts to be in the default path and puts binaries in place to make command
+# line usability tiiiight
+#
+default['particle']['programmer_shield']['pocd_git_clone_path'] = "#{node['particle']['programmer_shield']['shared_dir']}/pocd"
+default['particle']['programmer_shield']['pocd_git_clone_url'] = 'git@github.com:spark/pocd.git'
+default['particle']['programmer_shield']['pocd_git_branch'] = 'master'
+
