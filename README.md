@@ -5,123 +5,66 @@ A set of scripts to configure a machine to use the [Particle Programmer Shield](
 Supported Platforms
 ------------
 
-- Raspberry Pi 2 B+
+Tested on [Raspbian Jessie OS](https://www.raspberrypi.org/downloads/raspbian/) on Raspberry Pi 1 B+ and Raspberry Pi 2 B.
 
-Usage
+Setup on an RPi
 ---
 
-### 0. Write the SD card
+Instructions mostly taken from [here](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md).
 
-- `df -h`: see something like 
+### Write the SD card with Debian Jessie (on OS X)
 
-/dev/disk2s1
-disk2s1
+- Download an OS from the above download linke
+- Insert the SD card in Mac
+- `df -h`: see something like:
 
-https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
-= `diskutil list`
-/dev/disk2
+        /dev/disk2s1
 
-diskutil unmountDisk /dev/disk2
-sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2
+- `diskutil list`: see something like:
 
+        /dev/disk2
+           #:                       TYPE NAME                    SIZE       IDENTIFIER
+           0:     FDisk_partition_scheme                        *16.1 GB    disk2
+           1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
+           2:                      Linux                         4.3 GB     disk2s2
 
-sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2
-/dev/disk2
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:     FDisk_partition_scheme                        *16.1 GB    disk2
-   1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
-   2:                      Linux                         4.3 GB     disk2s2
+- `diskutil unmountDisk /dev/disk2`;
+- `sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2` to flash it.
+  - Note this takes a LONG time (20-50m) with no output
+  - Nuance: this did not take advantage of all of the space on the micro sd card.
 
-- ON DEVICE:
-- change keyboard layout to english
+### Plugin Keyboard/Mouse/monitor + fire up Raspberry Pi
 
+- Point and click around to change keyboard layout to english (otherwise @ is a "), it default to UK
+- `passwd` to change `pi` user password (default is `raspberry`), change it to something secure that you'll ssh in with
+- `sudo raspi-config` -> Advanced -> SSH -> Enable
 
-### berkshelf fails
-
-config.status: creating gecode/support/config.hpp
--> make clean
-(cd . && autoconf)
-/bin/sh: 1: autoconf: not found
-Makefile:1455: recipe for target 'configure' failed
-make: *** [configure] Error 127
-extconf.rb:98:in `block in run': Failed to build gecode library. (GecodeBuild::BuildError)
-        from extconf.rb:97:in `chdir'
-        from extconf.rb:97:in `run'
-        from extconf.rb:104:in `<main>'
-
-extconf failed, exit code 1
-
-Gem files will remain installed in /usr/local/lib/ruby/gems/2.2.0/gems/dep-selector-libgecode-1.0.2 for inspection.
-Results logged to /usr/local/lib/ruby/gems/2.2.0/extensions/armv7l-linux/2.2.0/dep-selector-libgecode-1.0.2/gem_make.out
-
-### Change pi user password
-### Enable SSH
-### Add root ssh deploy key to needed private
+### Generate a ssh keypair for root user, that you'll use to snag repos
 
     sudo bash
     ssh-keygen
-    cap ~/.ssh/id_rsa.pub
-    # go add this somewhere in github
+    cat ~/.ssh/id_rsa.pub
 
-### Bootstrap Pi + Run chef
+- go add this somewhere key in github so you'll have access to the private repos that are used in this cookbook/in your project
 
-Run this as root:
+### Install Chef Cookbook dependencies
 
+    sudo bash
     mkdir -p ~/.chef/cookbooks
     git clone git@github.com:spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
     cd ~/.chef
     bash cookbooks/particle-programmer-shield/files/default/install_scripts/ruby_and_chef.sh
+
+### Install OpenOCD
+
+    sudo bash
+    cd ~/.chef
     chef-client --local --override-runlist 'recipe[particle-programmer-shield]'
 
-This does the following:
+Usage
+---
 
-- installs openocd
-- grabs a git clone of the programmer-shield repo
-- symlinks config files to make shell usage more friendly
-
-### TODO: add the end to end tests
-
-git clone git@github.com:/spark/end-to-end-tests.git
+### Plugin Programmer Shield AND Photon to shield + RPi
+### Flash Photon RC4 to connected device
 
 
-## 
-- FUCK; particle-cli doesnt install
-
-
-    root@raspberrypi:~# npm install particle-cli
-    \
-    > serialport@2.0.5 install /root/node_modules/particle-cli/node_modules/serialport
-    > node-pre-gyp install --fallback-to-build
-
-    sh: 1: node-pre-gyp: Permission denied
-    npm ERR! Linux 4.1.7-v7+
-    npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "particle-cli"
-    npm ERR! node v4.2.1
-    npm ERR! npm  v2.14.7
-    npm ERR! file sh
-    npm ERR! code ELIFECYCLE
-    npm ERR! errno ENOENT
-    npm ERR! syscall spawn
-
-    npm ERR! serialport@2.0.5 install: `node-pre-gyp install --fallback-to-build`
-    npm ERR! spawn ENOENT
-    npm ERR!
-    npm ERR! Failed at the serialport@2.0.5 install script 'node-pre-gyp install --fallback-to-build'.
-    npm ERR! This is most likely a problem with the serialport package,
-    npm ERR! not with npm itself.
-    npm ERR! Tell the author that this fails on your system:
-    npm ERR!     node-pre-gyp install --fallback-to-build
-    npm ERR! You can get their info via:
-    npm ERR!     npm owner ls serialport
-    npm ERR! There is likely additional logging output above.
-
-    npm ERR! Please include the following file with any support request:
-    npm ERR!     /root/npm-debug.log
-    root@raspberrypi:~# particle
-    -bash: particle: command not found
-
-
-- No worries, we fix it via this: https://github.com/voodootikigod/node-serialport
-
-     wget https://node-arm.herokuapp.com/node_archive_armhf.deb
-     sudo dpkg -i node_archive_armhf.deb

@@ -38,4 +38,3 @@ default['particle']['programmer_shield']['remote_sources']['PARTICLE_CFG_PATH'] 
 default['particle']['programmer_shield']['pocd_git_clone_path'] = "#{node['particle']['programmer_shield']['shared_dir']}/pocd"
 default['particle']['programmer_shield']['pocd_git_clone_url'] = 'git@github.com:spark/pocd.git'
 default['particle']['programmer_shield']['pocd_git_branch'] = 'master'
-

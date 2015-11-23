@@ -1,5 +1,50 @@
 # TODOS
 
+
+### From CI related ideas/Joe stuff
+
+- [WIP] install particle-cli; configure 3 directories for 3 different clouds so we can concurrently use the cli to run tests against different clouds for the same userx
+  - particle-cli doesnt install, figure out
+
+        root@raspberrypi:~# npm install particle-cli
+        \
+        > serialport@2.0.5 install /root/node_modules/particle-cli/node_modules/serialport
+        > node-pre-gyp install --fallback-to-build
+
+        sh: 1: node-pre-gyp: Permission denied
+        npm ERR! Linux 4.1.7-v7+
+        npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "particle-cli"
+        npm ERR! node v4.2.1
+        npm ERR! npm  v2.14.7
+        npm ERR! file sh
+        npm ERR! code ELIFECYCLE
+        npm ERR! errno ENOENT
+        npm ERR! syscall spawn
+
+        npm ERR! serialport@2.0.5 install: `node-pre-gyp install --fallback-to-build`
+        npm ERR! spawn ENOENT
+        npm ERR!
+        npm ERR! Failed at the serialport@2.0.5 install script 'node-pre-gyp install --fallback-to-build'.
+        npm ERR! This is most likely a problem with the serialport package,
+        npm ERR! not with npm itself.
+        npm ERR! Tell the author that this fails on your system:
+        npm ERR!     node-pre-gyp install --fallback-to-build
+        npm ERR! You can get their info via:
+        npm ERR!     npm owner ls serialport
+        npm ERR! There is likely additional logging output above.
+
+        npm ERR! Please include the following file with any support request:
+        npm ERR!     /root/npm-debug.log
+        root@raspberrypi:~# particle
+        -bash: particle: command not found
+
+
+  - [ ] Switch to use Serial Port npm module recommended
+  node version??? https://github.com/voodootikigod/node-serialport
+
+         wget https://node-arm.herokuapp.com/node_archive_armhf.deb
+         sudo dpkg -i node_archive_armhf.deb
+
 ### From old programmer rig/David's shell script
 
 - [ ] configure autossh
@@ -33,11 +78,24 @@
         sudo dphys-swapfile uninstall
         sudo update-rc.d dphys-swapfile remove
 
-### From CI related ideas/Joe stuff
+# COMPLETED
 
-- [ ] install particle-cli; configure 3 directories for 3 different clouds so we can concurrently use the cli to run tests against different clouds for the same userx
-- [ ] grab combined-09 from here http://factory-firmware-binaries.particle.io instead of including it inline
-- [ ] make a script that does this to reset a photon to exact factory state.
+- [x] gcc >= 4.9.2
+- [x] libusb and friends
+- [x] install autossh
+- [x] misc packages sudo apt-get install git dh-autoreconf htop minicom
+  - [x] git
+  - [SKIP] dh-autoreconf, why?
+  - [x] htop
+  - [x] minicom
+- [SKIP] set the local time to CST, let's stick to utc
+- [x] Install dfu-util
+- [x] Confirm node.js version is good on RPi
+
+- [x] grab combined-09 from here http://factory-firmware-binaries.particle.io instead of including it inline
+- [x] make a script that does this to reset a photon to exact factory state.
+
+    BINARY_PATH=combined_BM-09.bin pocd-flash-factory-firmware
 
 BOOOM; this works:
 
@@ -63,17 +121,3 @@ pocd \
   -c "reset run" \
   -c "shutdown"
 
-
-# COMPLETED
-
-- [x] gcc >= 4.9.2
-- [x] libusb and friends
-- [x] install autossh
-- [x] misc packages sudo apt-get install git dh-autoreconf htop minicom
-  - [x] git
-  - [SKIP] dh-autoreconf, why?
-  - [x] htop
-  - [x] minicom
-- [SKIP] set the local time to CST, let's stick to utc
-- [x] Install dfu-util
-- [x] Confirm node.js version is good on RPi
