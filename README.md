@@ -1,51 +1,45 @@
 # particle-programmer-shield
 
-A set of scripts to configure a machine to use the [Particle Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield) for repeatable OpenOCD Particle firmware programming and continuous integration.
+Installs and configures software for [Openocd](http://openocd.org/) and JTAG programming on a Particle Device. Designed to work with the [Particle Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
+
+It:
+
+- installs OpenOCD and package dependencies
+- installs helper scripts + aliases to make use of openocd + jtag simpler
+- downloads factory firmware binaries
+- installs modern Node.js, Ruby, and Chef
+- [NOT YET] installs the particle-cli
+- [NOT YET] installs ST-LINK tools
+- [NOT YET] installs gcc-arm compiler tools
 
 Supported Platforms
 ------------
 
-Tested on [Raspbian Jessie OS](https://www.raspberrypi.org/downloads/raspbian/) on Raspberry Pi 1 B+ and Raspberry Pi 2 B.
+Tested on [Raspbian Jessie OS](https://www.raspberrypi.org/downloads/raspbian/) on Raspberry Pi 1 B+ and Raspberry Pi 2 B. The table below shows other platforms we'd like to support.
 
-Setup on an RPi
+
+```
+|-------------------------------+------------|
+| OS Name                       | verified?  |
+|-------------------------------+------------|
+| Raspbian Jessie (8.2)         |     Y      |
+|-------------------------------+------------|
+| Raspbian Wheezy (8.1)         |     N      |
+|-------------------------------+------------|
+| OS X (10.10)                  |     N      |
+|-------------------------------+------------|
+| Ubuntu (14.04)                |     N      |
+|-------------------------------+------------|
+| Windows (10)                  |     N      |
+|-------------------------------+------------|
+```
+
+Install Guides
 ---
 
-Instructions mostly taken from [here](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md).
+- For [RPi + OSX](/doc/install-on-rpi-with-osx.md)
 
-### Write the SD card with Debian Jessie (on OS X)
-
-- Download an OS from the above download linke
-- Insert the SD card in Mac
-- `df -h`: see something like:
-
-        /dev/disk2s1
-
-- `diskutil list`: see something like:
-
-        /dev/disk2
-           #:                       TYPE NAME                    SIZE       IDENTIFIER
-           0:     FDisk_partition_scheme                        *16.1 GB    disk2
-           1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
-           2:                      Linux                         4.3 GB     disk2s2
-
-- `diskutil unmountDisk /dev/disk2`;
-- `sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2` to flash it.
-  - Note this takes a LONG time (20-50m) with no output
-  - Nuance: this did not take advantage of all of the space on the micro sd card.
-
-### Plugin Keyboard/Mouse/monitor + fire up Raspberry Pi
-
-- Point and click around to change keyboard layout to english (otherwise @ is a "), it default to UK
-- `passwd` to change `pi` user password (default is `raspberry`), change it to something secure that you'll ssh in with
-- `sudo raspi-config` -> Advanced -> SSH -> Enable
-
-### Generate a ssh keypair for root user, that you'll use to snag repos
-
-    sudo bash
-    ssh-keygen
-    cat ~/.ssh/id_rsa.pub
-
-- go add this somewhere key in github so you'll have access to the private repos that are used in this cookbook/in your project
+Then:
 
 ### Install Chef Cookbook dependencies
 
@@ -63,6 +57,22 @@ Instructions mostly taken from [here](https://www.raspberrypi.org/documentation/
 
 Usage
 ---
+
+In addition to downloading, building, installing, and configuring software, it creates a comfy place to do jtag programming with some programmer shield connected devices.
+
+Creates dir structure like this on the device connected to the programmer-shield:
+
+    /opt/particle/
+      bin/
+        ..symlinks to any executable contained in other bundled software...
+      firmware-binaries/
+        comined-bm-09.bin
+      embedded
+        apps
+          pocd/
+          bin/
+            ...helper openocd scripts...
+
 
 ### Plugin Programmer Shield AND Photon to shield + RPi
 ### Flash Photon RC4 to connected device
