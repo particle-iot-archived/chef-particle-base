@@ -5,7 +5,7 @@ Instructions mostly taken from [here](https://www.raspberrypi.org/documentation/
 
 ### Write the SD card with Debian Jessie (on OS X)
 
-- Download an OS from the above download linke
+- Download an OS from the above download link
 - Insert the SD card in Mac
 - `df -h`: see something like:
 
@@ -19,23 +19,21 @@ Instructions mostly taken from [here](https://www.raspberrypi.org/documentation/
            1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
            2:                      Linux                         4.3 GB     disk2s2
 
-- `diskutil unmountDisk /dev/disk2`;
-- `sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/rdisk2` to flash it.
+- IMPORTANT: Note the one that is the SD card, in this example we swap `disk2` with `<TODO>`(the others represent your hard-drives, etc)
+- `diskutil unmountDisk /dev/<TODO>` (swap "disk2" with yours)
+- `sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/r<TODO>` to flash it. (swap "disk2" with yours)
   - Note this takes a LONG time (20-50m) with no output
-  - Nuance: this did not take advantage of all of the space on the micro sd card.
+  - When done `diskutil unmountDisk <TODO>` again
 
-### Plugin Keyboard/Mouse/monitor + fire up Raspberry Pi
+### Boot the Pi + enable SSH
 
-- Point and click around to change keyboard layout to english (otherwise @ is a "), it default to UK
-- `passwd` to change `pi` user password (default is `raspberry`), change it to something secure that you'll ssh in with
-- `sudo raspi-config` -> Advanced -> SSH -> Enable
+- *Configure your keyboard to match the language*, the default is UK. If using with standard english keyboard `@` with print as `"`, to change: `Preferences -> Mouse and Keyboard Settings -> Keyboard Layout -> `
 
-### Generate a ssh keypair for root user, that you'll use to snag repos
+- *Change password of `pi` user*: `passwd` (default is `raspberry`)
 
-    sudo bash
-    ssh-keygen
-    cat ~/.ssh/id_rsa.pub
-
-- go add this somewhere key in github so you'll have access to the private repos that are used in this cookbook/in your project
-
-
+- *Expand SD volume*: `sudo raspi-config` + `Expand Filesystem`
+- *Enable SSH*: `sudo raspi-config` + `Advanced -> SSH -> Enable`
+- *Confirm SSH is listening*: `ifconfig` + search for an ip like `192.168.1.X`, from your computer (on the same LAN as the RPi), do `nc -z 192.168.1.X 22 && echo "is listening"`, if you dont see "is listening" something is wrong, maybe you don't have `nc` installed (which is okay) perhaps you are on a differenet LAN or some firewall is in the way?
+- *SSH in*: `ssh pi@192.168.1.X`. Confirm filesystem uses whole SD card: `df -h`
+- *Generate ssh keypair*: `ssh-keygen` + `cat ~/.ssh/id_rsa.pub`. Copy that crypto-goo and put somewhere safe; upload it somewhere in GitHub to access your private repos via a deploy key.
+- *Enable keyless ssh auth (optional)*: On your machine, `cat ~/.ssh/id_rsa.pub` + add it to `~/.ssh/authorized_keys` on the pi (make sure to `chmod 600 ~/.ssh/authorized_keys` too)
