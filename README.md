@@ -39,42 +39,21 @@ Install Guides
 
 - For [RPi + OSX](/doc/install-on-rpi-with-osx.md)
 
-Then:
+Then on the RPi:
 
-### Install Chef Cookbook dependencies
+    curl -sSL https://raw.githubusercontent.com/spark/particle-programmer-shield/master/bootstrap.bash | sudo bash
 
-    sudo bash
-    mkdir -p ~/.chef/cookbooks
-    git clone git@github.com:spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
-    cd ~/.chef
-    bash cookbooks/particle-programmer-shield/files/default/install_scripts/ruby_and_chef.sh
+- This first builds and installs modern Ruby and Chef via then runs `chef-client` to do t
 
-### Install OpenOCD
+After bootstrap, update config later
+---
 
     sudo bash
+    (cd ~/.chef/cookbooks/particle-programmer-shield && git pull)
     cd ~/.chef
     chef-client --local --override-runlist 'recipe[particle-programmer-shield]'
 
 Usage
 ---
 
-In addition to downloading, building, installing, and configuring software, it creates a comfy place to do jtag programming with some programmer shield connected devices.
-
-Creates dir structure like this on the device connected to the programmer-shield:
-
-    /opt/particle/
-      bin/
-        ..symlinks to any executable contained in other bundled software...
-      firmware-binaries/
-        comined-bm-09.bin
-      embedded
-        apps
-          pocd/
-          bin/
-            ...helper openocd scripts...
-
-
-### Plugin Programmer Shield AND Photon to shield + RPi
-### Flash Photon RC4 to connected device
-
-
+TODO: Document things you can do
