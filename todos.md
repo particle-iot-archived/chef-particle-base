@@ -1,7 +1,4 @@
-# TODOS
-
-
-### From CI related ideas/Joe stuff
+# Todos
 
 - [WIP] install particle-cli; configure 3 directories for 3 different clouds so we can concurrently use the cli to run tests against different clouds for the same userx
   - particle-cli doesnt install, figure out
@@ -39,46 +36,11 @@
         -bash: particle: command not found
 
 
-  - [ ] Switch to use Serial Port npm module recommended
-  node version??? https://github.com/voodootikigod/node-serialport
+- [ ] Switch to use Serial Port npm module recommended
+node version??? https://github.com/voodootikigod/node-serialport
 
          wget https://node-arm.herokuapp.com/node_archive_armhf.deb
          sudo dpkg -i node_archive_armhf.deb
-
-### From old programmer rig/David's shell script
-
-- [ ] configure autossh
-
-  - See this for reference https://github.com/spark/programming-rig/blob/b64b555266e2640796dda5ac9b1b2d38efcdf39a/software/scripts/startup/sshproxy.sh
-
-## THIS WORKS
-
-### From Raspberry Pi establish persistent tunnel with servier 192.168.1.89
-
-    autossh -M 20000 -R 192.168.1.89:30000:127.0.0.1:22 goggins@192.168.1.89
-
-- However, this maintains a session; will need tweaks to run in background,
-
-- This looks better, doesn't use the monitoring port
-
-    # http://linuxaria.com/howto/permanent-ssh-tunnels-with-autossh
-    autossh -c 'autossh -M 0 -q -f -N -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -L 3306:localhost:3306 autossh@remotemachine'
-
-### From server, connect to raspberry pi on port 3000
-
-#### SSH
-
-    ssh pi@localhost -p 30000
-
-#### Converge Chef via autossh from server
-
-    ssh pi@localhost -p 30000 sudo bash -c "cd /root/.chef && chef-client --local --override-runlist 'recipe[particle-programmer-shield]'"
-
-#### scp (copy a file from server to PI)
-
-    scp -P 30000 README.md pi@localhost:POO
-
-#### scp (copy a file from PI to server)
 
 - [ ] enable random number generator
 
@@ -98,10 +60,6 @@
         ./configure
         make
         make install
-
-- [ ] Create a private key for sparkbot3 so it can get private repos???
-  - TODO; think about this, how to handle ssh keys + private repos here
-  - Note was "Add our public key to our read-only github user: "david+sparkbot@sparkdevices.com""
 
 - [ ] Turn off physical disk swapping
   http://www.ideaheap.com/2013/07/stopping-sd-card-corruption-on-a-raspberry-pi/
