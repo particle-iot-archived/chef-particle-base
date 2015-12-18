@@ -56,4 +56,4 @@ After bootstrap, update config later
 Usage
 ---
 
-TODO: Document things you can do
+TODO: Document things you can do with this...
