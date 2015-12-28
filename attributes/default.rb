@@ -1,7 +1,7 @@
 # Global vars that will be present in all Particle Cookbooks
 default['particle']['base_dir'] = '/particle'
 default['particle']['misc_dir'] = "#{node['particle']['base_dir']}/misc"
-default['particle']['packages'] = %w(git tmux htop vim tree ca-certificates ntpdate screen libtool)
+default['particle']['packages'] = %w(git tmux htop vim tree ca-certificates ntpdate screen libtool libtool-bin)
 default['particle']['do_update_packages'] = true
 
 # Programmer shield specific vars
