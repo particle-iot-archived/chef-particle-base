@@ -50,7 +50,7 @@ do_install() {
 
   # Run chef-client
   mkdir -p ~/.chef/cookbooks
-  git clone git@github.com:spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
+  git clone https://github.com/spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
   cd ~/.chef
   chef-client --local --override-runlist 'recipe[particle-programmer-shield]'
 }

@@ -43,7 +43,8 @@ Then on the RPi:
 
     curl -sSL https://raw.githubusercontent.com/spark/particle-programmer-shield/master/bootstrap.bash | sudo bash
 
-- This first builds and installs modern Ruby and Chef via then runs `chef-client` to do t
+- This will take a LONG time (1-3 hours), it first builds and installs modern Ruby and Chef via then runs `chef-client` to configure the RPi image
+with handy tools.
 
 After bootstrap, update config later
 ---
