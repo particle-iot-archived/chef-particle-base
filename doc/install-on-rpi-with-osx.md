@@ -19,9 +19,9 @@ Instructions mostly taken from [here](https://www.raspberrypi.org/documentation/
            1:             Windows_FAT_32 boot                    58.7 MB    disk2s1
            2:                      Linux                         4.3 GB     disk2s2
 
-- IMPORTANT: Note the one that is the SD card, in this example we swap `disk2` with `<TODO>`(the others represent your hard-drives, etc)
-- `diskutil unmountDisk /dev/<TODO>` (swap "disk2" with yours)
-- `sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/r<TODO>` to flash it. (swap "disk2" with yours)
+- IMPORTANT: Note the one that is the SD card, in this example we swap `<TODO>` with 'disk2' (the others represent your hard-drives, etc)
+- `diskutil unmountDisk /dev/<TODO>`
+- `sudo dd bs=1m if=2015-09-24-raspbian-jessie.img of=/dev/r<TODO>` to flash it. (swap "TODO" with yours)
   - Note this takes a LONG time (20-50m) with no output
   - When done `diskutil unmountDisk <TODO>` again
 
