@@ -11,5 +11,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[particle-programmer-shield::default]
+      - recipe[particle-base::default]
     attributes:
