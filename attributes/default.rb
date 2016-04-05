@@ -19,3 +19,9 @@ default['particle-base']['packages']['zmq-build'] = %w(libtool libtool-bin)
 ###
 default['particle-base']['user'] = 'root'
 default['particle-base']['group'] = 'root'
+
+
+###
+# How do I update stuff?
+###
+default['particle-base']['scripts']['update_cookbook_and_converge'] = "#{node['particle-base']['dir']}/bin/update-and-converge"

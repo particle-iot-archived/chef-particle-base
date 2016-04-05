@@ -49,20 +49,18 @@ Run it the first time
 
 This will git clone this repo to the machine, build, and install modern Ruby and Chef.
 
-Update the cookbook and Particle tools
+Update the cookbook and Particle tools to latest
 ---
 
-    sudo bash
-    (cd ~/.chef/cookbooks/particle-base && git pull)
-    cd ~/.chef
-    chef-client --local --override-runlist 'recipe[particle-base]'
+    sudo /opt/particle-base/bin/update-and-converge
 
 Contribute
 ---
 
-Standard GitHub flow style: GH Issue -> PR with passing tests -> Merge
+Standard GitHub flow style: Discuss via GH Issues, PR with passing tests, Merging, and all that.
 
-Development is done with ChefDK
+Development is done with ChefDK:
+
 - Run linter `chef exec foodcritic .`
 - Run unit tests `chef exec rspec`
 - Run integration tests `kitchen verify` (todo; set up something using inspec)

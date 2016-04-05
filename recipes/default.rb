@@ -4,7 +4,7 @@ if node['particle-base']['do_update_packages']
   end
 end
 
-directory node['particle-base']['dir'] do
+directory "#{node['particle-base']['dir']}/bin" do
   user node['particle-base']['user']
   group node['particle-base']['user']
   recursive true
@@ -15,4 +15,8 @@ node['particle-base']['packages'].each_pair do |category, pkg_array|
   pkg_array.each do |pkg_name|
     package pkg_name
   end
+end
+
+template node['particle-base']['scripts']['update_cookbook_and_converge'] do
+  source 'update-and-converge.sh.erb'
 end

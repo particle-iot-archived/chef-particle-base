@@ -13,7 +13,7 @@ describe 'particle-base::default' do
       expect { chef_run }.to_not raise_error
     end
     it 'creates a directory /opt/particle-base owned by root' do
-      expect(chef_run).to create_directory('/opt/particle-base').with(
+      expect(chef_run).to create_directory('/opt/particle-base/bin').with(
         user: 'root',
         group: 'root',
       )
