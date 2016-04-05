@@ -52,7 +52,7 @@ This will git clone this repo to the machine, build, and install modern Ruby and
 Update the cookbook and Particle tools to latest
 ---
 
-    sudo /opt/particle-base/bin/update-and-converge
+    sudo bash /opt/particle-base/bin/update-and-converge
 
 Contribute
 ---

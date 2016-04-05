@@ -1,11 +1,12 @@
 #!/bin/sh
+# ONLY WORKS ON RPI
 set -e
 # This script installs modern Ruby, Chef, and git clones the cookbook to the machine and runs it.
 #
 # Usage
 # ====
 
-#   curl -sSL https://raw.githubusercontent.com/spark/particle-programmer-shield/master/bootstrap.bash | sudo bash
+#   curl -sSL https://raw.githubusercontent.com/spark/chef-particle-base/master/bootstrap.bash | sudo bash
 
 export BUILD_DIR=rig-bootstrap-tmp
 
@@ -50,8 +51,8 @@ do_install() {
 
   # Run chef-client
   mkdir -p ~/.chef/cookbooks
-  git clone https://github.com/spark/particle-programmer-shield.git ~/.chef/cookbooks/particle-programmer-shield
+  git clone https://github.com/spark/chef-particle-base.git ~/.chef/cookbooks/particle-base
   cd ~/.chef
-  chef-client --local --override-runlist 'recipe[particle-programmer-shield]'
+  chef-client --local --override-runlist 'recipe[particle-base]'
 }
 do_install
