@@ -1,0 +1,21 @@
+# TODO: MAKE THIS WORK: `ci/run` does what it's supposed to locally, but travis isn't wired up
+language: ruby
+cache: bundler
+sudo: false
+
+before_install:
+  - gem install bundler
+
+rvm:
+  - 2.2
+
+# gemfile: gemfiles/chefspec.gemfile
+
+env:
+  - CHEF_VERSION=master
+  - CHEF_VERSION=12.8.1
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: CHEF_VERSION=master
