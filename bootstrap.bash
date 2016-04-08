@@ -1,5 +1,7 @@
 #!/bin/bash
 export BUILD_DIR=/opt/particle-base/bootstrap/tmp
+export COOKBOOKS_PATH="${HOME}/.chef/cookbooks"
+export GIT_CLONE_PATH="${COOKBOOKS_PATH}/particle-base"
 set -e
 # This script installs modern Ruby, Chef, and git clones the cookbook to the machine and runs it.
 #
@@ -35,6 +37,7 @@ install_on_osx() {
   idempotently_get_chefdk_dmg
   install_dmg
   git_clone_particle_base
+  # TODO: (cd ~/.chef && chef exec berks install --berksfile=cookbooks/particle-base/Berksfile)
   run_chef_client
 }
 idempotently_get_chefdk_dmg() {
@@ -85,8 +88,12 @@ install_on_rpi() {
 # COMMON FUNCTIONS
 ###
 git_clone_particle_base() {
-  mkdir -p ~/.chef/cookbooks
-  git clone https://github.com/spark/chef-particle-base.git ~/.chef/cookbooks/particle-base
+  if [[ -d "$GIT_CLONE_PATH" ]]; then
+    echo "$GIT_CLONE_PATH already exists, not cloning"
+  else
+    mkdir -p "$GIT_CLONE_PATH"
+    git clone https://github.com/spark/chef-particle-base.git "$GIT_CLONE_PATH" 
+  fi
 }
 run_chef_client() {
   cd ~/.chef

@@ -45,7 +45,7 @@ These guides describe how to configure a machine from a binary OS image distribu
 Run it the first time
 ---
 
-    curl -sSL https://raw.githubusercontent.com/spark/particle-base/master/bootstrap.bash | sudo bash
+    curl -sSL https://raw.githubusercontent.com/spark/chef-particle-base/master/bootstrap.bash | sudo bash
 
 This will git clone this repo to the machine, build, and install modern Ruby and Chef.
 
