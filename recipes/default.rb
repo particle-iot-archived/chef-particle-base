@@ -1,6 +1,8 @@
 if node['particle-base']['do_update_packages']
   if platform_family?('debian')
     execute "apt-get update"
+  elsif platform_family?('mac_os_x')
+    Chef::Log.warn "AAAAAAAAAA"
   end
 end
 
@@ -20,3 +22,4 @@ end
 template node['particle-base']['scripts']['update_cookbook_and_converge'] do
   source 'update-and-converge.sh.erb'
 end
+
