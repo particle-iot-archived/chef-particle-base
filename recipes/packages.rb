@@ -1,9 +1,12 @@
+
 if node['particle-base']['do_update_packages']
   if platform_family?('debian')
     execute "apt-get update"
   elsif platform_family?('mac_os_x')
-    # execute "brew update" # this fails with Error: Cowardly refusing to 'sudo brew update'
-    # user is expected to run `brew update` before converging
+    execute('install homebrew') do
+      command '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+      not_if "which brew"
+    end
     log "Did you run `brew update`? Highly recommended."
   end
 end
