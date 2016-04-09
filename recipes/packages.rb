@@ -5,7 +5,7 @@ if node['particle-base']['do_update_packages']
   elsif platform_family?('mac_os_x')
     execute('install homebrew') do
       command '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-      user node['particle-base']['user'] do
+      user node['particle-base']['user']
       group node['particle-base']['group']
       not_if "which brew"
     end
