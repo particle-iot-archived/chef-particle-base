@@ -1,0 +1,14 @@
+#!/bin/bash
+# About
+# ===
+#
+# Useful when doing local cookbook dev against a repo with uncommitted changes
+# REQUIRES SUDO, like:
+#
+#    sudo bin/iterate
+#
+export COOKBOOKS_PATH="${HOME}/.chef/cookbooks"
+chef exec berks vendor $COOKBOOKS_PATH
+cd $COOKBOOKS_PATH
+cd .. # we need to be one up from the cookbooks path in localmode
+chef-client --local --override-runlist 'recipe[particle-base]'
