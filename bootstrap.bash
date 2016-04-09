@@ -41,6 +41,7 @@ install_on_osx() {
   install_dmg
   git_clone_particle_base
   install_cookbooks
+  install_homebrew
   run_chef_client
 }
 idempotently_get_chefdk_dmg() {
@@ -57,6 +58,9 @@ install_dmg() {
 
 install_cookbooks() {
   (cd "$GIT_CLONE_PATH" && sudo chef exec berks vendor $COOKBOOKS_PATH)
+}
+install_homebrew() {
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 ###
 # RPI HELPERS
@@ -93,11 +97,11 @@ install_on_rpi() {
 ###
 git_clone_particle_base() {
   if [[ -d "$GIT_CLONE_PATH" ]]; then
-    echo "$GIT_CLONE_PATH already exists, not cloning"
-  else
-    mkdir -p "$GIT_CLONE_PATH"
-    git clone https://github.com/spark/chef-particle-base.git "$GIT_CLONE_PATH"
+    echo "$GIT_CLONE_PATH already exists, destroying it"
+    rm -rf $GIT_CLONE_PATH
   fi
+  mkdir -p "$GIT_CLONE_PATH"
+  git clone https://github.com/spark/chef-particle-base.git "$GIT_CLONE_PATH"
 }
 run_chef_client() {
   cd $COOKBOOKS_PATH
