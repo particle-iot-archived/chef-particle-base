@@ -16,10 +16,10 @@ Supported Tools
 
 - [x] Modern Chef + Ruby
 - [x] OpenOCD
-- [ ] Particle-cli
+- [x] Particle-cli
   - Use https://github.com/monkbroc/particle-cli-ng as source of truth
+- [x] Installs modern Node.js
 - [ ] ST-LINK tools
-- [ ] Installs modern Node.js
 - [ ] OpenOCD Helper Scripts: bash scripts to using openocd with Particle devicies easier
 - [ ] installs gcc-arm compiler tools
 
