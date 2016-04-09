@@ -10,4 +10,5 @@ recipe 'particle-base::default', 'Installs minimal dependencies for target OS'
   supports os
 end
 depends 'build-essential'
+depends 'ark'
 source_url 'https://github.com/spark/chef-particle-base'
