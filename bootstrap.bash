@@ -47,7 +47,7 @@ idempotently_get_chefdk_dmg() {
   if [[ -e "$DMG_FILE" ]]; then
     echo "$DMG_FILE exists, not re-downloading"
   else
-    wget "https://packages.chef.io/stable/mac_os_x/${OSX_VERSION}/${DMG_FILE}"
+    curl -L "https://packages.chef.io/stable/mac_os_x/${OSX_VERSION}/${DMG_FILE}" > "$DMG_FILE"
   fi
 }
 install_dmg() {
