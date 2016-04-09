@@ -7,7 +7,7 @@ Goals
 
 - [x] Provide a useful base for doing continuous integration against Particle Delivery on distributed RPis.
 
-- [ ] Install a known to work version of particle-cli for target OS
+- [x] Install a known to work version of particle-cli for target OS
 
 - [ ] Install programming tools like openocd + stlink with helper scripts for particle devices
 
@@ -20,7 +20,7 @@ Supported Tools
   - Use https://github.com/monkbroc/particle-cli-ng as source of truth
 - [x] Installs modern Node.js (in /home/particle-ci/.particle)
 - [x] dfu-util
-- [ ] installs gcc-arm compiler tools
+- [x] installs gcc-arm compiler tools
 - [ ] OpenOCD Helper Scripts: bash scripts to using openocd with Particle devicies easier
 - [ ] ST-LINK tools
 
