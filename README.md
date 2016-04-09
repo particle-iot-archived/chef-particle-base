@@ -18,17 +18,18 @@ Supported Tools
 - [x] OpenOCD
 - [x] Particle-cli
   - Use https://github.com/monkbroc/particle-cli-ng as source of truth
-- [x] Installs modern Node.js
-- [ ] ST-LINK tools
-- [ ] OpenOCD Helper Scripts: bash scripts to using openocd with Particle devicies easier
+- [x] Installs modern Node.js (in /home/particle-ci/.particle)
+- [x] dfu-util
 - [ ] installs gcc-arm compiler tools
+- [ ] OpenOCD Helper Scripts: bash scripts to using openocd with Particle devicies easier
+- [ ] ST-LINK tools
 
 Supported Platforms
 ------------
 
 - [x] Raspberry Pi: [Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/)
 - [x] Debian 8.2 (Non-RPi equivalent of Raspbian Jessie)
-- [ ] OS X 10.11
+- [x] OS X 10.11
 - [ ] Ubuntu 14.04
 - [ ] Windows 10
 
