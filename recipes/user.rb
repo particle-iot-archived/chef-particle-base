@@ -1,3 +1,5 @@
+group node['particle-base']['group']
+
 user node['particle-base']['user'] do
   home node['particle-base']['user_home_dir']
   group node['particle-base']['group']
