@@ -1,21 +1,21 @@
 {
-  "revision_id": "6e62c71dd2fd1e85a18afcc297b14902361abe9ec5a997154c83b155f4303046",
+  "revision_id": "fedf558d5b8c6de2d7a585f6d65275d7420ebd7ae05cdb121d59b0ed696b0419",
   "name": "particle_base",
   "run_list": [
     "recipe[particle_base::default]"
   ],
   "cookbook_locks": {
     "particle_base": {
-      "version": "0.2.0",
-      "identifier": "fe2cd4d8bb243fe44d2a0760590f9fa7864bfe13",
-      "dotted_decimal_identifier": "71543936765338687.64261137597749519.175541861482003",
+      "version": "0.3.0",
+      "identifier": "481d9a9205e4bf76b71db0d398fdd8089e71e9d9",
+      "dotted_decimal_identifier": "20298748035196095.33415385400449277.237531529603545",
       "source": ".",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:spark/chef-particle-base.git",
-        "revision": "b981395e07e3cfcf3a0636185064fcff0edf2b24",
-        "working_tree_clean": false,
+        "revision": "75483b03785e922e2e920fc2dc9aec997c0443c8",
+        "working_tree_clean": true,
         "published": true,
         "synchronized_remote_branches": [
           "origin/HEAD -> origin/master",
@@ -161,6 +161,20 @@
       ]
     ],
     "dependencies": {
+      "particle_base (0.3.0)": [
+        [
+          "build-essential",
+          ">= 0.0.0"
+        ],
+        [
+          "ark",
+          ">= 0.0.0"
+        ],
+        [
+          "apt",
+          "~> 4.0.2"
+        ]
+      ],
       "build-essential (6.0.4)": [
         [
           "seven_zip",
@@ -221,20 +235,6 @@
         [
           "compat_resource",
           ">= 12.10.0"
-        ]
-      ],
-      "particle_base (0.2.0)": [
-        [
-          "build-essential",
-          ">= 0.0.0"
-        ],
-        [
-          "ark",
-          ">= 0.0.0"
-        ],
-        [
-          "apt",
-          "~> 4.0.2"
         ]
       ]
     }
