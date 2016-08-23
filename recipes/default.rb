@@ -1,12 +1,5 @@
-include_recipe('particle-base::user')
-include_recipe('particle-base::packages')
-include_recipe 'build-essential'
-include_recipe('particle-base::arm_gcc')
-include_recipe('particle-base::directories')
-include_recipe('particle-base::scripts')
-
-if platform_family?('mac_os_x')
-  Chef::Log.error "TODO: INSTALL NVM + NODE 5.4.x (same as cli_ng)"
-else
-  include_recipe('particle-base::particle_cli_ng')
-end
+include_recipe('particle_base::update_package_index')
+include_recipe('particle_base::install_every_node_packages')
+include_recipe('particle_base::install_arm_gcc')
+include_recipe('particle_base::install_scripts')
+include_recipe('particle_base::install_particle_cli_ng')

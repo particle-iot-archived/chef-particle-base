@@ -11,4 +11,4 @@ export COOKBOOKS_PATH="${HOME}/.chef/cookbooks"
 chef exec berks vendor $COOKBOOKS_PATH
 cd $COOKBOOKS_PATH
 cd .. # we need to be one up from the cookbooks path in localmode
-chef-client --local --override-runlist 'recipe[particle-base]'
+chef-client --local --override-runlist 'recipe[particle_base]'

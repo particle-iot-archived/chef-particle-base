@@ -1,6 +1,11 @@
-# particle-base
+# particle_base
 
-Installs/Configures useful tools for programming, testing, and interacting with Particle Devices (https://www.particle.io).
+Installs/Configures useful command line tools for programming, testing, and interacting with Particle Devices (https://www.particle.io).
+By design it's meant to AS MINIMAL AS POSSIBLE so it can serve as a minimal base for other Particle chef cookbooks in a variety of compute contexts.
+There are several hard and fast rules of what can go in this cookbook to keep it minimal:
+
+- NO services or daemons
+- NO special users (everything happens as root)
 
 Goals
 ---

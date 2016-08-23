@@ -1,21 +1,27 @@
-# TODO: MAKE THIS WORK: `ci/run` does what it's supposed to locally, but travis isn't wired up
-language: ruby
-cache: bundler
-sudo: false
+rvm: 2.2 # doesnt really matter because we're using all chefdk stuff...
+sudo: required
+services: docker
+env:
+  matrix:
+  - INSTANCE=default-ubuntu-1404
 
 before_install:
-  - gem install bundler
+- curl -L https://www.getchef.com/chef/install.sh | sudo bash -s -- -P chefdk -v 0.17.17
 
-rvm:
-  - 2.2
+install:
+# TODO: install coveralls
+# - chef exec gem install coveralls
 
-# gemfile: gemfiles/chefspec.gemfile
+# https://github.com/zuazo/kitchen-in-travis-native/issues/1#issuecomment-142455888
+before_script: sudo iptables -L DOCKER || sudo iptables -N DOCKER
 
-env:
-  - CHEF_VERSION=master
-  - CHEF_VERSION=12.8.1
+script:
+# fast fail style: syntax check + lint check
+- ruby -c recipes/*.rb && ruby -c attributes/*.rb && chef exec foodcritic --epic-fail any --progress --exclude test .
 
-matrix:
-  fast_finish: true
-  allow_failures:
-    - env: CHEF_VERSION=master
+# unit tests: none yet, will be added soon
+- chef exec rspec
+
+# integration tests; some good examples exist, but not reliably passing
+- chef exec kitchen converge ${INSTANCE}
+- chef exec kitchen verify ${INSTANCE}

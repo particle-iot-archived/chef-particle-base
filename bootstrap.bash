@@ -102,7 +102,7 @@ git_clone_particle_base() {
 run_chef_client() {
   cd $COOKBOOKS_PATH
   cd .. # we need to be one up from the cookbooks path in localmode
-  chef-client --local --override-runlist 'recipe[particle-base]'
+  chef-client --local --override-runlist 'recipe[particle_base]'
 }
 make_and_cd_to_build_dir() {
   mkdir -p $BUILD_DIR

@@ -1,4 +1,4 @@
 #!/bin/bash
-(cd /root/.chef/cookbooks/particle-base && git pull)
+(cd /root/.chef/cookbooks/particle_base && git pull)
 cd /root/.chef
-chef-client --local --override-runlist 'recipe[particle-base]'
+chef-client --local --override-runlist 'recipe[particle_base]'
