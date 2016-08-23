@@ -14,6 +14,7 @@ elsif platform_family?('windows')
   "https://dfu55fst9l042.cloudfront.net/master/0.0.1-dedbf1f/windows/amd64/particle-cli-ng.exe"
 else
   Chef::Log.error "particle-cli-installer not supported on #{node['platform_family']}"
+  "" # return a string;
 end
 default['particle_base']['particle-cli-installer']['download_path'] = "#{node['particle_base']['tmp_dir']}/#{File.basename(node['particle_base']['particle-cli-installer']['source_url'])}"
 default['particle_base']['particle-cli-installer']['executable_name'] = if platform_family?('windows')
