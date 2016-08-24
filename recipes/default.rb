@@ -1,5 +1,6 @@
 include_recipe('particle_base::update_package_index')
 include_recipe('particle_base::install_every_node_packages')
 include_recipe('particle_base::install_arm_gcc')
+include_recipe('particle_base::install_bats')
 include_recipe('particle_base::install_scripts')
 include_recipe('particle_base::install_particle_cli_ng')

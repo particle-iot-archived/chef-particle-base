@@ -6,6 +6,7 @@ There are several hard and fast rules of what can go in this cookbook to keep it
 
 - NO services or daemons
 - NO special users (everything happens as root)
+- NO global modifications to `$PATH`
 
 Goals
 ---
