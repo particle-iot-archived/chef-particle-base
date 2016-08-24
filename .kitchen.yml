@@ -1,7 +1,8 @@
 ---
 driver:
   name: docker
-  privileged: true
+  # This is a workaround until https://github.com/test-kitchen/kitchen-docker/issues/207 is resolved
+  use_sudo: false
 
 provisioner:
   name: policyfile_zero
