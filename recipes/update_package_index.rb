@@ -1,6 +1,5 @@
 case node['platform_family']
 when 'debian' # includes ubuntu
-  node.set['apt']['compile_time_update'] = true
   include_recipe('apt')
 when 'mac_os_x'
   ruby_block "error if homebrew is not already installed" do
