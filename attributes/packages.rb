@@ -1,7 +1,7 @@
 # packages that should live EVERY WHERE; no packages that launch services allowed in this list; that should happen elsewhere
 default['particle_base']['packages']['debian']['every_node'] = %w(ca-certificates git htop tmux vim nano netcat jq)
 default['particle_base']['packages']['mac_os_x']['every_node'] = %w(git vim tmux nano netcat jq)
-default['particle_base']['packages']['rhel']['every_node'] = node['particle_base']['packages']['debian']['every_node']
+default['particle_base']['packages']['rhel']['every_node'] = %w(ca-certificates git htop tmux vim nano nc jq)
 
 # package node['particle_base']['packages']['rhel']['every_node']
 # dfu packages for different OSes
