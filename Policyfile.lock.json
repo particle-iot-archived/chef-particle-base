@@ -1,5 +1,5 @@
 {
-  "revision_id": "395700fa6ba807e0ebdf6412165b50cf304f0dc73b1a8a36bfd581ddaf49329c",
+  "revision_id": "2b306e842541555674fd3e1a5061fd7e32373c624b2a8c10a341fa1114fa814d",
   "name": "particle_base",
   "run_list": [
     "recipe[particle_base::default]"
@@ -7,14 +7,14 @@
   "cookbook_locks": {
     "particle_base": {
       "version": "0.3.0",
-      "identifier": "51d39a507e60da005208b1489fa66a37f1fe2ea0",
-      "dotted_decimal_identifier": "23032132842447066.90197287542694.116788515712672",
+      "identifier": "e5b010d91fa7396ecb499bcbfbc641d8ac8cc107",
+      "dotted_decimal_identifier": "64651356075435833.31185764445060038.72398863646983",
       "source": ".",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:spark/chef-particle-base.git",
-        "revision": "3578a24b316520057fe906a50f3e8a3bfa16fce1",
+        "revision": "f8b8f17c293ebe06d47d7e02fe04e1b0f8cca3ac",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
