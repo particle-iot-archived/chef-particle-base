@@ -4,6 +4,7 @@ when 'debian' # includes ubuntu
 when 'mac_os_x'
   package node['particle_base']['packages']['mac_os_x']['every_node']
 when 'rhel'
+  package 'epel-release'
   package node['particle_base']['packages']['rhel']['every_node']
 else
   log "Cannot update package index for platform_family=#{node['platform_family']}" do
