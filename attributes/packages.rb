@@ -14,3 +14,9 @@ default['particle_base']['packages']['mac_os_x']['dfu'] = %w(pkg-config libusb d
 default['particle_base']['packages']['debian']['zmq'] = %w(software-properties-common)
 default['particle_base']['packages']['mac_os_x']['zmq'] = %w(libtool)
 # rhel not supported here
+
+# a duplicate of the packages used in the bootstrap.sh script
+# that is useful when not using the bootstrap.sh to provision
+default['particle_base']['packages']['debian']['ruby_build_packages'] = %w(build-essential libyaml-dev libssl-dev libreadline-dev)
+# todo mac_os_x
+# no rhel support

@@ -9,6 +9,8 @@ when 'mac_os_x'
     not_if "which brew"
   end
   execute "brew update"
+when 'rhel'
+  execute "yum -y update"
 else
   log "Cannot update package index for platform_family=#{node['platform_family']}" do
     level :error
