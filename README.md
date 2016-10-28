@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/spark/chef-particle-base.svg?branch=master)](https://travis-ci.org/spark/chef-particle-base)
+
 # particle_base
 
 Installs/Configures useful command line tools for programming, testing, and interacting with Particle Devices (https://www.particle.io).

@@ -1,5 +1,5 @@
 {
-  "revision_id": "a37ebf9035e7cb79103ae746abea7bcbcb411fb713c7350fef17c2b731be368a",
+  "revision_id": "4b534b79a2e93262137ccee6933702a2c52c73614478d62f18205b9c4780899b",
   "name": "particle_base",
   "run_list": [
     "recipe[particle_base::default]"
@@ -7,14 +7,14 @@
   "cookbook_locks": {
     "particle_base": {
       "version": "0.3.0",
-      "identifier": "7a630d8933b4499a5dbb00099efae8aa4832ba9f",
-      "dotted_decimal_identifier": "34448856946291785.43450204154339066.255818053368479",
+      "identifier": "3dd2df16a2e05369c924639636ac74a9f5dcbe7c",
+      "dotted_decimal_identifier": "17401829178662995.29776030681413292.128273323179644",
       "source": ".",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
-        "remote": null,
-        "revision": "45f61b5d664e7d46409247e2802b2dddbbcfc0e0",
+        "remote": "git@github.com:spark/chef-particle-base.git",
+        "revision": "2824ba60dba9175507e2a023611e98d247df5664",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
@@ -27,47 +27,58 @@
       }
     },
     "build-essential": {
-      "version": "6.0.4",
-      "identifier": "6ca850c821bde0e559359e33926756a6da7b8596",
-      "dotted_decimal_identifier": "30584362393255392.64555856489058919.95274630088086",
-      "cache_key": "build-essential-6.0.4-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/build-essential/versions/6.0.4/download",
+      "version": "7.0.1",
+      "identifier": "92221b303e3b0e21e5f9d49316ec7532ce893c0a",
+      "dotted_decimal_identifier": "41132846768601870.9541535407478508.128861073914890",
+      "cache_key": "build-essential-7.0.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/build-essential/versions/7.0.1/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/build-essential/versions/6.0.4/download",
-        "version": "6.0.4"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/build-essential/versions/7.0.1/download",
+        "version": "7.0.1"
       }
     },
-    "seven_zip": {
-      "version": "2.0.1",
-      "identifier": "1ef062de1bc4cb14e4a78fb739e104eb9508473e",
-      "dotted_decimal_identifier": "8708556725142731.5880907856034273.5409864173374",
-      "cache_key": "seven_zip-2.0.1-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/seven_zip/versions/2.0.1/download",
+    "ark": {
+      "version": "2.0.0",
+      "identifier": "91522514bc41b34891aac7f9b8c9ec73b5f28452",
+      "dotted_decimal_identifier": "40904190838194611.20426361008666825.259981717963858",
+      "cache_key": "ark-2.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/ark/versions/2.0.0/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/seven_zip/versions/2.0.1/download",
-        "version": "2.0.1"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/ark/versions/2.0.0/download",
+        "version": "2.0.0"
+      }
+    },
+    "apt": {
+      "version": "5.0.0",
+      "identifier": "0b6fbc85f6ed8ff1750409a09c9a0206a5160cc3",
+      "dotted_decimal_identifier": "3219080235904399.67964129589107866.2227562745027",
+      "cache_key": "apt-5.0.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/5.0.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/5.0.0/download",
+        "version": "5.0.0"
       }
     },
     "windows": {
-      "version": "1.44.3",
-      "identifier": "856961abed6d3eb7083b1dd1d71bdd130a809576",
-      "dotted_decimal_identifier": "37552040119725374.51518970734434075.243073850316150",
-      "cache_key": "windows-1.44.3-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.44.3/download",
+      "version": "2.0.2",
+      "identifier": "59e724b02f856cdd8a72cb82922eb820557ab3c7",
+      "dotted_decimal_identifier": "25305417687991660.62358195498291758.202449012569031",
+      "cache_key": "windows-2.0.2-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/2.0.2/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/1.44.3/download",
-        "version": "1.44.3"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/windows/versions/2.0.2/download",
+        "version": "2.0.2"
       }
     },
-    "chef_handler": {
-      "version": "1.4.0",
-      "identifier": "aa794c0c3a03d09a5e22ca2ffb70115fda923471",
-      "dotted_decimal_identifier": "47984113570415568.43450649927482224.19103386580081",
-      "cache_key": "chef_handler-1.4.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/chef_handler/versions/1.4.0/download",
+    "seven_zip": {
+      "version": "2.0.2",
+      "identifier": "8e6795446cfa8e0a4a09cef4d5d35eb2d522a24d",
+      "dotted_decimal_identifier": "40083337488693902.2896155754419667.104122173006413",
+      "cache_key": "seven_zip-2.0.2-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/seven_zip/versions/2.0.2/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/chef_handler/versions/1.4.0/download",
-        "version": "1.4.0"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/seven_zip/versions/2.0.2/download",
+        "version": "2.0.2"
       }
     },
     "mingw": {
@@ -82,36 +93,14 @@
       }
     },
     "compat_resource": {
-      "version": "12.10.7",
-      "identifier": "0cf5d376444495035f02b8cb1acf2b3e5a0a51e5",
-      "dotted_decimal_identifier": "3647988291617941.948890225023695.47546798592485",
-      "cache_key": "compat_resource-12.10.7-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.7/download",
+      "version": "12.16.1",
+      "identifier": "cd3221f63523f70cfd02b717e62d9cea96cd1377",
+      "dotted_decimal_identifier": "57757491671671799.3655887824086573.172531366302583",
+      "cache_key": "compat_resource-12.16.1-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.16.1/download",
       "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.10.7/download",
-        "version": "12.10.7"
-      }
-    },
-    "ark": {
-      "version": "1.2.0",
-      "identifier": "173511b3152d674c2039719081d874679a800f53",
-      "dotted_decimal_identifier": "6532274599570791.21427529320530392.127988322537299",
-      "cache_key": "ark-1.2.0-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/ark/versions/1.2.0/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/ark/versions/1.2.0/download",
-        "version": "1.2.0"
-      }
-    },
-    "apt": {
-      "version": "4.0.2",
-      "identifier": "51664f9858292385ed1c36cb8296b40046838435",
-      "dotted_decimal_identifier": "22911965157927203.37696877336691350.197913276023861",
-      "cache_key": "apt-4.0.2-supermarket.chef.io",
-      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.2/download",
-      "source_options": {
-        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/apt/versions/4.0.2/download",
-        "version": "4.0.2"
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/compat_resource/versions/12.16.1/download",
+        "version": "12.16.1"
       }
     }
   },
@@ -129,19 +118,23 @@
       ],
       [
         "build-essential",
-        "= 6.0.4"
+        "= 7.0.1"
       ],
       [
-        "seven_zip",
-        "= 2.0.1"
+        "ark",
+        "= 2.0.0"
+      ],
+      [
+        "apt",
+        "= 5.0.0"
       ],
       [
         "windows",
-        "= 1.44.3"
+        "= 2.0.2"
       ],
       [
-        "chef_handler",
-        "= 1.4.0"
+        "seven_zip",
+        "= 2.0.2"
       ],
       [
         "mingw",
@@ -149,19 +142,11 @@
       ],
       [
         "compat_resource",
-        "= 12.10.7"
-      ],
-      [
-        "ark",
-        "= 1.2.0"
-      ],
-      [
-        "apt",
-        "= 4.0.2"
+        "= 12.16.1"
       ]
     ],
     "dependencies": {
-      "build-essential (6.0.4)": [
+      "build-essential (7.0.1)": [
         [
           "seven_zip",
           ">= 0.0.0"
@@ -172,38 +157,10 @@
         ],
         [
           "compat_resource",
-          ">= 12.10.0"
+          ">= 12.14.0"
         ]
       ],
-      "seven_zip (2.0.1)": [
-        [
-          "windows",
-          ">= 1.2.2"
-        ]
-      ],
-      "windows (1.44.3)": [
-        [
-          "chef_handler",
-          ">= 0.0.0"
-        ]
-      ],
-      "chef_handler (1.4.0)": [
-
-      ],
-      "mingw (1.2.4)": [
-        [
-          "seven_zip",
-          ">= 0.0.0"
-        ],
-        [
-          "compat_resource",
-          ">= 0.0.0"
-        ]
-      ],
-      "compat_resource (12.10.7)": [
-
-      ],
-      "ark (1.2.0)": [
+      "ark (2.0.0)": [
         [
           "build-essential",
           ">= 0.0.0"
@@ -217,11 +174,33 @@
           ">= 0.0.0"
         ]
       ],
-      "apt (4.0.2)": [
+      "apt (5.0.0)": [
         [
           "compat_resource",
-          ">= 12.10.0"
+          ">= 12.14.7"
         ]
+      ],
+      "windows (2.0.2)": [
+
+      ],
+      "seven_zip (2.0.2)": [
+        [
+          "windows",
+          ">= 1.2.2"
+        ]
+      ],
+      "mingw (1.2.4)": [
+        [
+          "seven_zip",
+          ">= 0.0.0"
+        ],
+        [
+          "compat_resource",
+          ">= 0.0.0"
+        ]
+      ],
+      "compat_resource (12.16.1)": [
+
       ],
       "particle_base (0.3.0)": [
         [
@@ -234,7 +213,7 @@
         ],
         [
           "apt",
-          "~> 4.0.2"
+          ">= 0.0.0"
         ]
       ]
     }
