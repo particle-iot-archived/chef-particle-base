@@ -97,7 +97,7 @@ git_clone_particle_base() {
     rm -rf $GIT_CLONE_PATH
   fi
   mkdir -p "$GIT_CLONE_PATH"
-  git clone https://github.com/spark/chef-particle-base.git "$GIT_CLONE_PATH"
+  git clone https://github.com/particle-iot/chef-particle-base.git "$GIT_CLONE_PATH"
 }
 run_chef_client() {
   cd $COOKBOOKS_PATH

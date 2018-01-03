@@ -12,5 +12,5 @@ end
 depends 'build-essential'
 depends 'ark'
 depends 'apt'
-source_url 'https://github.com/spark/chef-particle-base'
-issues_url 'https://github.com/spark/chef-particle-base/issues'
+source_url 'https://github.com/particle-iot/chef-particle-base'
+issues_url 'https://github.com/particle-iot/chef-particle-base/issues'
